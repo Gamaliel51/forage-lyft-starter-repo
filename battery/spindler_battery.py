@@ -13,7 +13,7 @@ class Spindler(Battery):
         last_service_date = self.last_service_date
 
         date_difference = relativedelta.relativedelta(today, last_service_date)
-        if date_difference.years >= 2:
+        if date_difference.years >= 3:
             return True
         else:
             return False

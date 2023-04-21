@@ -8,10 +8,11 @@ from battery.spindler_battery import Spindler
 from battery.nubbin_battery import Nubbin
 
 
+
 class CarFactory(Car):
 
     @staticmethod
-    def create_calliope(today, last_service_date, current_mileage, last_service_mileage):
+    def create_calliope(today, last_service_date, current_mileage, last_service_mileage, tire_data_array):
         engine = CapuletEngine(current_mileage, last_service_mileage)
         battery = Spindler(today, last_service_date)
         car = Car(engine, battery)
@@ -19,7 +20,7 @@ class CarFactory(Car):
         return car
 
     @staticmethod
-    def create_glissade(today, last_service_date, current_mileage, last_service_mileage):
+    def create_glissade(today, last_service_date, current_mileage, last_service_mileage, tire_data_array):
         engine = WilloughbyEngine(current_mileage, last_service_mileage)
         battery = Spindler(today, last_service_date)
         car = Car(engine, battery)
@@ -27,7 +28,7 @@ class CarFactory(Car):
         return car
 
     @staticmethod
-    def create_palindrome(today, last_service_date, warning_light_is_on):
+    def create_palindrome(today, last_service_date, warning_light_is_on, tire_data_array):
         engine = SternmanEngine(warning_light_is_on)
         battery = Spindler(today, last_service_date)
         car = Car(engine, battery)
@@ -35,7 +36,7 @@ class CarFactory(Car):
         return car
 
     @staticmethod
-    def create_rorschach(today, last_service_date, current_mileage, last_service_mileage):
+    def create_rorschach(today, last_service_date, current_mileage, last_service_mileage, tire_data_array):
         engine = WilloughbyEngine(current_mileage, last_service_mileage)
         battery = Nubbin(today, last_service_date)
         car = Car(engine, battery)
@@ -43,7 +44,7 @@ class CarFactory(Car):
         return car
 
     @staticmethod
-    def create_thovex(today, last_service_date, current_mileage, last_service_mileage):
+    def create_thovex(today, last_service_date, current_mileage, last_service_mileage, tire_data_array):
         engine = CapuletEngine(current_mileage, last_service_mileage)
         battery = Nubbin(today, last_service_date)
         car = Car(engine, battery)

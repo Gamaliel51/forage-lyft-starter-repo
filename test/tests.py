@@ -8,6 +8,9 @@ from engine.sternman_engine import SternmanEngine
 from battery.spindler_battery import Spindler
 from battery.nubbin_battery import Nubbin
 
+from tire.carrigan import Carrigan
+from tire.octoprime import OctoPrime
+
 
 class TestEngines(unittest.TestCase):
 
@@ -48,6 +51,23 @@ class TestBatteries(unittest.TestCase):
 
         self.assertTrue(battery_true.needs_service())
         self.assertFalse(battery_false.needs_service())
+
+
+class TestTires(unittest.TestCase):
+
+    def test_carrigan_tire(self):
+        tire_true = Carrigan([0.1, 0.5, 0.6, 0.9])
+        tire_false = Carrigan([0.1, 0.5, 0.3, 0.6])
+
+        self.assertTrue(tire_true.needs_service())
+        self.assertFalse(tire_false.needs_service())
+
+    def test_octoprime_tire(self):
+        tire_true = OctoPrime([0.9, 0.9, 0.9, 0.9])
+        tire_false = OctoPrime([0.1, 0.1, 0.1, 0.1])
+
+        self.assertTrue(tire_true.needs_service())
+        self.assertFalse(tire_false.needs_service())
 
 
 if __name__ == '__main__':
